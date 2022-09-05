@@ -39,5 +39,4 @@ public class Comment {
 //    @JsonManagedReference
 //    @OneToMany(mappedBy = "comment")
 //    private List<Like> likes = new ArrayList<>();
-
 }
