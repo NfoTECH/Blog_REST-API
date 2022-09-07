@@ -65,7 +65,8 @@ public class UserServiceImpl implements UserService {
         return loginResponse;
     }
 
-    private User findUserByEmail(String email) {
+    @Override
+    public User findUserByEmail(String email) {
         return userRepository.findUserByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
@@ -75,7 +76,7 @@ public class UserServiceImpl implements UserService {
         User user = findUserById(postDto.getUser_id());
         newPost.setTitle(postDto.getTitle());
         newPost.setContent(postDto.getContent());
-        newPost.setFeaturedImage(postDto.getContent());
+        newPost.setFeaturedImage(postDto.getFeaturedImage());
         newPost.setSlug(createSlug(postDto.getTitle()));
         newPost.setUser(user);
         postRepository.save(newPost);
@@ -83,7 +84,8 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    private User findUserById(Long id) {
+    @Override
+    public User findUserById(Long id) {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
@@ -99,7 +101,8 @@ public class UserServiceImpl implements UserService {
         return new CommentResponse("success", comment, LocalDateTime.now(), post);
     }
 
-    private Post findPostById(Long id) {
+    @Override
+    public Post findPostById(Long id) {
         return postRepository.findById(id).orElseThrow(() -> new RuntimeException("Post not found"));
     }
 
@@ -128,7 +131,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public SearchPostResponse searchPost(String keyword) {
-        List<Post> posts = postRepository.findByTitleContaining(keyword);
+        List<Post> posts = postRepository.findByTitleContainingIgnoreCase(keyword);
         return  new SearchPostResponse("success", LocalDateTime.now(), posts);
     }
 
@@ -140,8 +143,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public String createSlug(String input) {
-        String nowhitespace = WHITESPACE.matcher(input).replaceAll("-");
-        String normalized = Normalizer.normalize(nowhitespace, Normalizer.Form.NFD);
+        String noWhiteSpace = WHITESPACE.matcher(input).replaceAll("-");
+        String normalized = Normalizer.normalize(noWhiteSpace, Normalizer.Form.NFD);
         String slug = NONLATIN.matcher(normalized).replaceAll("");
         return slug.toLowerCase(Locale.ENGLISH);
     }
