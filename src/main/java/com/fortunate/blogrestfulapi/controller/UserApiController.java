@@ -7,25 +7,23 @@ import com.fortunate.blogrestfulapi.dto.UserDto;
 import com.fortunate.blogrestfulapi.model.Post;
 import com.fortunate.blogrestfulapi.response.*;
 import com.fortunate.blogrestfulapi.service.UserService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import java.net.URI;
 
 import static org.springframework.http.HttpStatus.*;
 
-@RestController @Slf4j
+@RestController @Slf4j @AllArgsConstructor
 @RequestMapping(value = "/api/user")
 public class UserApiController {
     private final UserService userService;
 
-    @Autowired
-    public UserApiController(UserService userService) {
-        this.userService = userService;
-    }
+//    @Autowired
+//    public UserApiController(UserService userService) {
+//        this.userService = userService;
+//    }
 
     @PostMapping(value = "/register")
     public ResponseEntity<RegisterResponse> registerResponse (@RequestBody UserDto userDto) {
@@ -57,13 +55,11 @@ public class UserApiController {
 
     @GetMapping(value = "/searchPost/{keyword}")
     public ResponseEntity<SearchPostResponse> searchPost(@PathVariable(value = "keyword") String keyword) {
-//        log.info("Successfully searched for : {} ", keyword);
         return new ResponseEntity<>(userService.searchPost(keyword), FOUND);
     }
 
     @GetMapping(value = "/searchComment/{keyword}")
     public ResponseEntity<SearchCommentResponse> searchComment(@PathVariable(value = "keyword") String keyword) {
-//        log.info("Successfully searched for : {} ", keyword);
         return new ResponseEntity<>(userService.searchComment(keyword), FOUND);
     }
 

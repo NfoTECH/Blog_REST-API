@@ -4,7 +4,6 @@ import com.fortunate.blogrestfulapi.dto.*;
 import com.fortunate.blogrestfulapi.model.Post;
 import com.fortunate.blogrestfulapi.model.User;
 import com.fortunate.blogrestfulapi.response.*;
-import org.springframework.stereotype.Service;
 
 public interface UserService {
     RegisterResponse register (UserDto userDto);

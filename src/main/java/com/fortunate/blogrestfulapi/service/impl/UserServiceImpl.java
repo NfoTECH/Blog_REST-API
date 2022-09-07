@@ -13,6 +13,7 @@ import com.fortunate.blogrestfulapi.repository.UserRepository;
 import com.fortunate.blogrestfulapi.response.*;
 import com.fortunate.blogrestfulapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.text.Normalizer;
