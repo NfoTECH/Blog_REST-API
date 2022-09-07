@@ -1,13 +1,9 @@
 package com.fortunate.blogrestfulapi.controller;
 
-import com.fortunate.blogrestfulapi.dto.CommentDto;
-import com.fortunate.blogrestfulapi.dto.LikeDto;
-import com.fortunate.blogrestfulapi.dto.PostDto;
-import com.fortunate.blogrestfulapi.dto.UserDto;
+import com.fortunate.blogrestfulapi.dto.*;
 import com.fortunate.blogrestfulapi.model.Post;
 import com.fortunate.blogrestfulapi.response.*;
 import com.fortunate.blogrestfulapi.service.UserService;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,15 +11,15 @@ import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.*;
 
-@RestController @Slf4j @AllArgsConstructor
+@RestController @Slf4j
 @RequestMapping(value = "/api/user")
 public class UserApiController {
     private final UserService userService;
 
-//    @Autowired
-//    public UserApiController(UserService userService) {
-//        this.userService = userService;
-//    }
+    @Autowired
+    public UserApiController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping(value = "/register")
     public ResponseEntity<RegisterResponse> registerResponse (@RequestBody UserDto userDto) {
@@ -31,9 +27,15 @@ public class UserApiController {
         return new ResponseEntity<>(userService.register(userDto) , CREATED);
     }
 
+    @GetMapping(value = "/login")
+    public ResponseEntity<LoginResponse> loginResponse (@RequestBody LoginDto loginDto) {
+        log.info("Successfully logged in {} ", loginDto.getEmail());
+        return new ResponseEntity<>(userService.login(loginDto), ACCEPTED);
+    }
+
     @PostMapping(value = "/create_post")
     public ResponseEntity<CreatePostResponse> createPostResponse (@RequestBody PostDto postDto) {
-        log.info("Successfully registered {} ", postDto.getTitle());
+        log.info("Successfully created {} ", postDto.getTitle());
         return new ResponseEntity<>(userService.createPost(postDto), CREATED);
     }
 
@@ -67,6 +69,4 @@ public class UserApiController {
     public ResponseEntity<Post> getPost(@PathVariable(value = "id") Long id) {
         return ResponseEntity.ok().body(userService.findPostById(id));
     }
-
-
 }
