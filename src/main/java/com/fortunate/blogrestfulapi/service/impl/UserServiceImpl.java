@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
             if (loginUser.getPassword().equals(loginDto.getPassword())) {
                 loginResponse = new LoginResponse("success", LocalDateTime.now());
             } else {
-                loginResponse = new LoginResponse("password Mismatch", LocalDateTime.now());
+                loginResponse = new LoginResponse("password MisMatch", LocalDateTime.now());
             }
         }
         return loginResponse;
@@ -137,7 +137,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public SearchCommentResponse searchComment(String keyword) {
-        List<Comment> comments = commentRepository.findByCommentContaining(keyword);
+        List<Comment> comments = commentRepository.findByCommentContainingIgnoreCase(keyword);
         return  new SearchCommentResponse("success", LocalDateTime.now(), comments);
 
     }

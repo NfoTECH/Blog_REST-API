@@ -1,9 +1,9 @@
 package com.fortunate.blogrestfulapi.dto;
 
-import com.fortunate.blogrestfulapi.model.Post;
-import com.fortunate.blogrestfulapi.model.User;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
+@AllArgsConstructor
 @Data
 public class LikeDto {
     boolean isLiked;
