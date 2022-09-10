@@ -304,7 +304,7 @@ curl --location --request GET 'http://localhost:8080/api/user/searchPost/review'
 ### Get comments for a post
 
 * Endpoint: `http://localhost:8080/api/user/searchComment/yummy`
-* Payload
+### Payload
 ```
 curl --location --request GET 'http://localhost:8080/api/user/searchComment/yum' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
@@ -329,7 +329,7 @@ curl --location --request GET 'http://localhost:8080/api/user/searchComment/yum'
 ### Get posts by id
 
 * Endpoint: `http://localhost:8080/api/user/post/4`
-* Payload
+### Payload
 ```
 curl --location --request GET 'http://localhost:8080/api/user/post/4' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
