@@ -369,3 +369,19 @@ curl --location --request GET 'http://localhost:8080/api/user/post/4' \
   ]
 }
 ```
+---
+### Delete a post by id
+* Endpoint: `http://localhost:8080/api/user/deletePost/4`
+
+### Payload
+```
+curl --location --request DELETE 'http://localhost:8080/api/user/deletePost/4' \
+--header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
+```
+### Response
+```json
+{
+  "message": "success",
+  "timeStamp": "2022-09-10T23:47:00.000000"
+}
+```
