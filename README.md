@@ -50,7 +50,7 @@ curl --location --request POST 'http://localhost:8080/api/user/register' \
 * Endpoint: `http://localhost:8080/api/user/login`
 
 ### Payload
-```json
+```
 curl --location --request GET 'http://localhost:8080/api/user/login' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
 ```
@@ -66,7 +66,7 @@ curl --location --request GET 'http://localhost:8080/api/user/login' \
 * Endpoint: `http://localhost:8080/api/post/create_post`
 
 ### Payload
-```json
+```
 curl --location --request POST 'http://localhost:8080/api/user/create_post' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3' \
@@ -100,7 +100,7 @@ curl --location --request POST 'http://localhost:8080/api/user/create_post' \
 * Endpoint: `http://localhost:8080/api/user/comment/3/4`
 
 ### Payload
-```json
+```
 curl --location --request POST 'http://localhost:8080/api/user/comment/3/4' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3' \
@@ -150,7 +150,7 @@ curl --location --request POST 'http://localhost:8080/api/user/comment/3/4' \
 * Endpoint: `http://localhost:8080/api/user/like/1/2`
 
 ### Payload
-```json
+```
 curl --location --request POST 'http://localhost:8080/api/user/like/1/2' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3' \
@@ -195,7 +195,7 @@ curl --location --request POST 'http://localhost:8080/api/user/like/1/2' \
 * Endpoint: `http://localhost:8080/api/user/searchPost/review`
 
 ### Payload
-```json
+```
 curl --location --request GET 'http://localhost:8080/api/user/searchPost/review' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
 ```
@@ -305,7 +305,7 @@ curl --location --request GET 'http://localhost:8080/api/user/searchPost/review'
 
 * Endpoint: `http://localhost:8080/api/user/searchComment/yummy`
 * Payload
-```json
+```
 curl --location --request GET 'http://localhost:8080/api/user/searchComment/yum' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
 ```
@@ -330,7 +330,7 @@ curl --location --request GET 'http://localhost:8080/api/user/searchComment/yum'
 
 * Endpoint: `http://localhost:8080/api/user/post/4`
 * Payload
-```json
+```
 curl --location --request GET 'http://localhost:8080/api/user/post/4' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
 ```
