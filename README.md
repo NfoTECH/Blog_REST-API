@@ -63,11 +63,11 @@ curl --location --request GET 'http://localhost:8080/api/user/login' \
 ```
 ---
 ### Create a post
-* Endpoint: `http://localhost:8080/api/post/create_post`
+* Endpoint: `http://localhost:8080/api/create-post`
 
 ### Payload
 ```
-curl --location --request POST 'http://localhost:8080/api/user/create_post' \
+curl --location --request POST 'http://localhost:8080/api/create-post' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3' \
 --data-raw '{
@@ -97,11 +97,11 @@ curl --location --request POST 'http://localhost:8080/api/user/create_post' \
 ```
 ---
 ### Comment on a post
-* Endpoint: `http://localhost:8080/api/user/comment/3/4`
+* Endpoint: `http://localhost:8080/api/comment/user-id/3/post-id/4`
 
 ### Payload
 ```
-curl --location --request POST 'http://localhost:8080/api/user/comment/3/4' \
+curl --location --request POST 'http://localhost:8080/api/comment/user-id/3/post-id/4' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3' \
 --data-raw '{
@@ -147,11 +147,11 @@ curl --location --request POST 'http://localhost:8080/api/user/comment/3/4' \
 ```
 ---
 ### Like a post
-* Endpoint: `http://localhost:8080/api/user/like/1/2`
+* Endpoint: `http://localhost:8080/api/like/user-id/1/post-id/2`
 
 ### Payload
 ```
-curl --location --request POST 'http://localhost:8080/api/user/like/1/2' \
+curl --location --request POST 'http://localhost:8080/api/like/user-id/1/post-id/2' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3' \
 --data-raw '{
@@ -192,11 +192,11 @@ curl --location --request POST 'http://localhost:8080/api/user/like/1/2' \
 ```
 ---
 ### Search for a post
-* Endpoint: `http://localhost:8080/api/user/searchPost/review`
+* Endpoint: `http://localhost:8080/api/search-post/review`
 
 ### Payload
 ```
-curl --location --request GET 'http://localhost:8080/api/user/searchPost/review' \
+curl --location --request GET 'http://localhost:8080/api/searchPost/review' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
 ```
 
@@ -303,10 +303,10 @@ curl --location --request GET 'http://localhost:8080/api/user/searchPost/review'
 ---
 ### Get comments for a post
 
-* Endpoint: `http://localhost:8080/api/user/searchComment/yummy`
+* Endpoint: `http://localhost:8080/api/search-comment/yummy`
 ### Payload
 ```
-curl --location --request GET 'http://localhost:8080/api/user/searchComment/yum' \
+curl --location --request GET 'http://localhost:8080/api/search-comment/yum' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
 ```
 
@@ -328,10 +328,10 @@ curl --location --request GET 'http://localhost:8080/api/user/searchComment/yum'
 ---
 ### Get posts by id
 
-* Endpoint: `http://localhost:8080/api/user/post/4`
+* Endpoint: `http://localhost:8080/api/post/4`
 ### Payload
 ```
-curl --location --request GET 'http://localhost:8080/api/user/post/4' \
+curl --location --request GET 'http://localhost:8080/api/post/4' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
 ```
 
@@ -371,11 +371,11 @@ curl --location --request GET 'http://localhost:8080/api/user/post/4' \
 ```
 ---
 ### Delete a post by id
-* Endpoint: `http://localhost:8080/api/user/deletePost/4`
+* Endpoint: `http://localhost:8080/api/delete-post/4`
 
 ### Payload
 ```
-curl --location --request DELETE 'http://localhost:8080/api/user/deletePost/4' \
+curl --location --request DELETE 'http://localhost:8080/api/delete-post/4' \
 --header 'Cookie: JSESSIONID=FBE4EE081F0223C114A7C0FFA3F967D3'
 ```
 ### Response
