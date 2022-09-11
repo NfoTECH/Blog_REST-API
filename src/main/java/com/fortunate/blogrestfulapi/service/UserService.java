@@ -11,15 +11,6 @@ public interface UserService {
 
     User findUserByEmail(String email);
 
-    CreatePostResponse createPost (PostDto postDto);
-
     User findUserById(Long id);
 
-    CommentResponse comment(Long user_id, Long post_id, CommentDto commentDto);
-
-    Post findPostById(Long id);
-
-    LikeResponse like (Long user_id, Long post_id, LikeDto likeDto);
-    SearchPostResponse searchPost (String keyword);
-    SearchCommentResponse searchComment (String keyword);
 }

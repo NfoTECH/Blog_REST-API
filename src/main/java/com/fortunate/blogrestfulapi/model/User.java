@@ -15,6 +15,7 @@ import java.util.Objects;
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor @EqualsAndHashCode
 @Entity
 @ToString
+@Builder
 @Table(name = "users")
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
