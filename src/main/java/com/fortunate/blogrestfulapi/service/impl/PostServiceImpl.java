@@ -39,12 +39,13 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public CreatePostResponse createPost(PostDto postDto) {
-        Post newPost = new Post();
         User user = userService.findUserById(postDto.getUser_id());
-        newPost.setTitle(postDto.getTitle());
-        newPost.setContent(postDto.getContent());
-        newPost.setFeaturedImage(postDto.getFeaturedImage());
-        newPost.setSlug(createSlug(postDto.getTitle()));
+        Post newPost = Post.builder()
+                .title(postDto.getTitle())
+                .content(postDto.getContent())
+                .featuredImage(postDto.getFeaturedImage())
+                .slug(slugify(postDto.getTitle()))
+                .build();
         newPost.setUser(user);
         postRepository.save(newPost);
         return new CreatePostResponse("success", LocalDateTime.now(), newPost);
@@ -69,12 +70,13 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public CommentResponse comment(Long user_id, Long post_id, CommentDto commentDto) {
-        Comment comment = new Comment();
         User user = userService.findUserById(user_id);
         Post post = findPostById(post_id);
-        comment.setComment(commentDto.getComment());
-        comment.setUser(user);
-        comment.setPost(post);
+        Comment comment = Comment.builder()
+                .comment(commentDto.getComment())
+                .user(user)
+                .post(post)
+                .build();
         commentRepository.save(comment);
         return new CommentResponse("success", comment, LocalDateTime.now(), post);
     }
@@ -127,7 +129,7 @@ public class PostServiceImpl implements PostService {
         return new DeletePostResponse("success", LocalDateTime.now(), post);
     }
 
-    public String createSlug(String input) {
+    public String slugify(String input) {
         String noWhiteSpace = WHITESPACE.matcher(input).replaceAll("-");
         String normalized = Normalizer.normalize(noWhiteSpace, Normalizer.Form.NFD);
         String slug = NONLATIN.matcher(normalized).replaceAll("");
